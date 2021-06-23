@@ -1,0 +1,6 @@
+sequencer_client
+---------------------------------------
+
+.. automodule:: commander_api.sequencer_client
+   :members:
+   :undoc-members:

@@ -1,0 +1,28 @@
+# List of targets
+# If cartesian motion is configured, there cannot be any joint space targets in this list
+MotionSequencePoint[] motion_sequence
+
+# Specify the urdf part to use as the end effector
+# Defaults to 'flange'
+string end_effector
+
+# Ignore scaling and run at 100% speed
+bool ignore_scaling
+---
+
+bool success
+string message
+
+# Index of the segment where the issue occurred (if there was an error at all)
+int32 index
+
+---
+
+# Normalized value between 0 and 1 showing progress towards the current motion sequence point
+float64 progress
+
+# The index of the mottion sequence point we are currently working towards
+int32 index
+
+# Time from the start of the motion sequence
+float64 time_from_start

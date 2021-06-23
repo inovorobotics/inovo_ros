@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Inovo API &mdash; Inovo API  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Datatypes" href="datatypes.html" />
+    <link rel="prev" title="Welcome to Inovo API’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Inovo API
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inovo API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-commander_api.gripper_client">gripper_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-commander_api.io_client">io_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-commander_api.motion_control_client">motion_control_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-commander_api.psu_client">psu_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-commander_api.robot_client">robot_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-commander_api.sequencer_client">sequencer_client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datatypes.html">Datatypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Inovo API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Inovo API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/commander_api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="inovo-api">
+<h1>Inovo API<a class="headerlink" href="#inovo-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-commander_api.gripper_client">
+<span id="gripper-client"></span><h2>gripper_client<a class="headerlink" href="#module-commander_api.gripper_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="commander_api.gripper_client.GripperClient">
+<em class="property">class </em><code class="descclassname">commander_api.gripper_client.</code><code class="descname">GripperClient</code><span class="sig-paren">(</span><em>ns='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.gripper_client.GripperClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to controll gripper connected to the robot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ns</strong> (<em>string</em><em>, </em><em>optional</em>) – Namespace, to define the name of the gripper, defaults to ‘default’</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="commander_api.gripper_client.GripperClient.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.gripper_client.GripperClient.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the gripper before moving it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Gripper activation error</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.gripper_client.GripperClient.get_position">
+<code class="descname">get_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.gripper_client.GripperClient.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return current position of the gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Gripper position</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.gripper_client.GripperClient.get_state">
+<code class="descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.gripper_client.GripperClient.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return information about activation state of the gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Gripper state</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.gripper_client.GripperClient.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>target_position</em>, <em>effort</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.gripper_client.GripperClient.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the gripper to the given goal, locks till target is reached or gripper is stalled</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>target_position</strong> (<em>float</em>) – The desired position of the gripper, from 0 to 1</li>
+<li><strong>effort</strong> (<em>float</em>) – The effort used to move the fingers, from 0 to 1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>Exception</strong> – Gripper action error</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the target position is not reached, False if the target is reached</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-commander_api.io_client">
+<span id="io-client"></span><h2>io_client<a class="headerlink" href="#module-commander_api.io_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="commander_api.io_client.IOClient">
+<em class="property">class </em><code class="descclassname">commander_api.io_client.</code><code class="descname">IOClient</code><a class="headerlink" href="#commander_api.io_client.IOClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to control the digital input/output on the robot writst and PSU box</p>
+<dl class="method">
+<dt id="commander_api.io_client.IOClient.psu_analog_read">
+<code class="descname">psu_analog_read</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.io_client.IOClient.psu_analog_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the PSU analog input</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<em>int</em>) – Channel to read</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Analog input value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.io_client.IOClient.psu_analog_write">
+<code class="descname">psu_analog_write</code><span class="sig-paren">(</span><em>channel</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.io_client.IOClient.psu_analog_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to the PSU analog output</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>channel</strong> (<em>int</em>) – Channel to write</li>
+<li><strong>value</strong> (<em>float</em>) – Output value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.io_client.IOClient.psu_digital_read">
+<code class="descname">psu_digital_read</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.io_client.IOClient.psu_digital_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the PSU digital input</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<em>int</em>) – Channel to read</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – PSU digital read error</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Value read by the PSU</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.io_client.IOClient.psu_digital_write">
+<code class="descname">psu_digital_write</code><span class="sig-paren">(</span><em>channel</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.io_client.IOClient.psu_digital_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to the PSU digital output</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>channel</strong> (<em>int</em>) – Channel to write</li>
+<li><strong>value</strong> (<em>int</em>) – Output value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> – PSU digital write error</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.io_client.IOClient.wrist_digital_read">
+<code class="descname">wrist_digital_read</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.io_client.IOClient.wrist_digital_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the read of the wrist digital input</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel</strong> (<em>int</em>) – Channel to read</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Wrist digital read error</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Value read by the wrist</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.io_client.IOClient.wrist_digital_write">
+<code class="descname">wrist_digital_write</code><span class="sig-paren">(</span><em>channel</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.io_client.IOClient.wrist_digital_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to the wrist digital output</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>channel</strong> (<em>int</em>) – Channel to write</li>
+<li><strong>value</strong> (<em>int</em>) – Output value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> – Wrist digital write error</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-commander_api.motion_control_client">
+<span id="motion-control-client"></span><h2>motion_control_client<a class="headerlink" href="#module-commander_api.motion_control_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="commander_api.motion_control_client.MotionControlClient">
+<em class="property">class </em><code class="descclassname">commander_api.motion_control_client.</code><code class="descname">MotionControlClient</code><a class="headerlink" href="#commander_api.motion_control_client.MotionControlClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to send motion commands to the robot</p>
+<dl class="method">
+<dt id="commander_api.motion_control_client.MotionControlClient.get_joint_angles">
+<code class="descname">get_joint_angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.motion_control_client.MotionControlClient.get_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current joint positions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Joint positions (rad)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list(float)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.motion_control_client.MotionControlClient.get_tcp_pose">
+<code class="descname">get_tcp_pose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.motion_control_client.MotionControlClient.get_tcp_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current position of the TCP in base frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">TCP position</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="datatypes.html#commander_api.custom_datatypes.TransformFrame" title="commander_api.custom_datatypes.TransformFrame">TransformFrame</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.motion_control_client.MotionControlClient.movej">
+<code class="descname">movej</code><span class="sig-paren">(</span><em>target</em>, <em>spd=0.25</em>, <em>acc=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.motion_control_client.MotionControlClient.movej" title="Permalink to this definition">¶</a></dt>
+<dd><p>Joint move to a cartesian target, locks till the target is reached</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>target</strong> (<a class="reference internal" href="datatypes.html#commander_api.custom_datatypes.TransformFrame" title="commander_api.custom_datatypes.TransformFrame"><em>TransformFrame</em></a>) – Target position x, y, z in meters and rotation rx, ry, rz in radians</li>
+<li><strong>spd</strong> (<em>float</em><em>, </em><em>optional</em>) – Tool speed in m/s, defaults to 0.25</li>
+<li><strong>acc</strong> (<em>float</em><em>, </em><em>optional</em>) – Tool acceleration in m/s/s, defaults to 0.5</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>RuntimeError</strong> – Unable to execute the move</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.motion_control_client.MotionControlClient.movej_angle">
+<code class="descname">movej_angle</code><span class="sig-paren">(</span><em>joint_angles</em>, <em>joint_velocity=0.4</em>, <em>joint_acceleration=0.75</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.motion_control_client.MotionControlClient.movej_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to a joint space target, locks till the target is reached</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>joint_angles</strong> (<em>list</em><em>(</em><em>float</em><em>)</em>) – Joint angles in radians</li>
+<li><strong>joint_velocity</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum joint velocity in rad/s, defaults to 0.4</li>
+<li><strong>joint_acceleration</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum joint acceleration in rad/s/s, defaults to 0.75</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>RuntimeError</strong> – Unable to execute the move</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.motion_control_client.MotionControlClient.movel">
+<code class="descname">movel</code><span class="sig-paren">(</span><em>target</em>, <em>spd=0.25</em>, <em>acc=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.motion_control_client.MotionControlClient.movel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear move to a cartesian target, locks till the target is reached</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>target</strong> (<a class="reference internal" href="datatypes.html#commander_api.custom_datatypes.TransformFrame" title="commander_api.custom_datatypes.TransformFrame"><em>TransformFrame</em></a>) – Target position x, y, z in meters and rotation rx, ry, rz in radians</li>
+<li><strong>spd</strong> (<em>float</em><em>, </em><em>optional</em>) – Tool speed in m/s, defaults to 0.25</li>
+<li><strong>acc</strong> (<em>float</em><em>, </em><em>optional</em>) – Tool acceleration in m/s/s, defaults to 0.5</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>RuntimeError</strong> – Unable to execute the move</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-commander_api.psu_client">
+<span id="psu-client"></span><h2>psu_client<a class="headerlink" href="#module-commander_api.psu_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="commander_api.psu_client.PSUClient">
+<em class="property">class </em><code class="descclassname">commander_api.psu_client.</code><code class="descname">PSUClient</code><a class="headerlink" href="#commander_api.psu_client.PSUClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to control the PSU box</p>
+<dl class="method">
+<dt id="commander_api.psu_client.PSUClient.get_bus_current">
+<code class="descname">get_bus_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.psu_client.PSUClient.get_bus_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current of the bus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Bus current</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.psu_client.PSUClient.get_bus_state">
+<code class="descname">get_bus_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.psu_client.PSUClient.get_bus_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the bus power status</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Unknown psu state</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">State, bus on = 1, bus off = 0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.psu_client.PSUClient.get_bus_voltage">
+<code class="descname">get_bus_voltage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.psu_client.PSUClient.get_bus_voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the voltage of the bus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Bus voltage</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.psu_client.PSUClient.power_off">
+<code class="descname">power_off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.psu_client.PSUClient.power_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Robot bus power off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Error powering off the robot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.psu_client.PSUClient.power_on">
+<code class="descname">power_on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.psu_client.PSUClient.power_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Robot bus power on</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Error powering on the robot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.psu_client.PSUClient.shut_down">
+<code class="descname">shut_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.psu_client.PSUClient.shut_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn off the PSU</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-commander_api.robot_client">
+<span id="robot-client"></span><h2>robot_client<a class="headerlink" href="#module-commander_api.robot_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="commander_api.robot_client.RobotClient">
+<em class="property">class </em><code class="descclassname">commander_api.robot_client.</code><code class="descname">RobotClient</code><a class="headerlink" href="#commander_api.robot_client.RobotClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Robot client class used for basic controll of the robot functionality</p>
+<dl class="method">
+<dt id="commander_api.robot_client.RobotClient.clear_errors">
+<code class="descname">clear_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.robot_client.RobotClient.clear_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all errors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Failed to clear errors</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.robot_client.RobotClient.disable">
+<code class="descname">disable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.robot_client.RobotClient.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable the robot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Failed to disable the robot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.robot_client.RobotClient.enable">
+<code class="descname">enable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.robot_client.RobotClient.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable the robot when it is powered on</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Failed to enable the robot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.robot_client.RobotClient.get_errors">
+<code class="descname">get_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.robot_client.RobotClient.get_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the latest error message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Error message</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="datatypes.html#commander_api.custom_datatypes.ErrorMessage" title="commander_api.custom_datatypes.ErrorMessage">ErrorMessage</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-commander_api.sequencer_client">
+<span id="sequencer-client"></span><h2>sequencer_client<a class="headerlink" href="#module-commander_api.sequencer_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="commander_api.sequencer_client.SequencerClient">
+<em class="property">class </em><code class="descclassname">commander_api.sequencer_client.</code><code class="descname">SequencerClient</code><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to control the sequencer</p>
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.get_sequencer_state">
+<code class="descname">get_sequencer_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.get_sequencer_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current state of the sequencer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Sequencer state, Idle = 0, Running = 1, Paused = 2</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.get_variable">
+<code class="descname">get_variable</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.get_variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the given variable if the sequence is running</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) – Name of the variable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Failed to get the variable value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Value of the variable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.get_variables_names">
+<code class="descname">get_variables_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.get_variables_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of variable names in the running sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of variables names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list(string)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.load_project">
+<code class="descname">load_project</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.load_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an existing project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) – Project name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Sequence failed to load a project</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.pause">
+<code class="descname">pause</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the running sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Sequence failed to pause</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.set_variable">
+<code class="descname">set_variable</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.set_variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a new variable in the sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – Name of the variable to set</li>
+<li><strong>value</strong> (<em>string</em>) – Value of the new variable</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> – Failed to set a new variable</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>name=''</em>, <em>variable_names=[]</em>, <em>variable_values=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the sequence or function</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Function name, defaults to the start block</li>
+<li><strong>variable_names</strong> (<em>list</em><em>, </em><em>optional</em>) – Arguments to pass in the function, defaults to []</li>
+<li><strong>variable_values</strong> (<em>list</em><em>, </em><em>optional</em>) – Values of the arguments passed to the function, defaults to []</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> – Sequencer failed to start</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="commander_api.sequencer_client.SequencerClient.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commander_api.sequencer_client.SequencerClient.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the running sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> – Sequence failed to stop</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="datatypes.html" class="btn btn-neutral float-right" title="Datatypes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Inovo API’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Inovo Robotics.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
