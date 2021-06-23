@@ -1,0 +1,4 @@
+string block_id
+---
+bool success
+string message

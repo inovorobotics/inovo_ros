@@ -1,0 +1,11 @@
+string token # A unique ID representing the sender
+
+string block_id # ID of the block that was moved
+string parent_id # ID of the new parent this block belongs to
+string new_input_name # Name of the connection this block has been attached to on the new parent block
+int32 x # New X coordinate
+int32 y # New Y coordinate
+
+---
+bool success # Indicate successful run of triggered service
+string message # Informational, e.g. for error messages

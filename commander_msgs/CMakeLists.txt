@@ -53,14 +53,36 @@ add_message_files(
   FILES
   LinAng.msg
   MotionSequencePoint.msg
+  Variable.msg
+  RuntimeState.msg
+  BlockLog.msg
+  Update.msg
+  Prompt.msg
+  Blockly.msg
+  ProjectMeta.msg
 )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   SetFloat.srv
-#   SetString.srv
-# )
+add_service_files(
+  FILES
+  Upload.srv
+  Download.srv
+  SetCursor.srv
+  DeleteVariable.srv
+  SetVariable.srv
+  Insert.srv
+  PromptResponse.srv
+  Project.srv
+  SetVariable.srv
+  DeleteVariable.srv
+  ListProjects.srv
+  RunSequence.srv
+  BlocklyCreate.srv
+  BlocklyChange.srv
+  BlocklyMove.srv
+  BlocklyDelete.srv
+  GetVariable.srv
+)
 
 ## Generate actions in the 'action' folder
 add_action_files(

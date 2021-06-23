@@ -1,0 +1,6 @@
+string procedure_name
+string[] variable_names
+string[] variable_values
+---
+bool success
+string message

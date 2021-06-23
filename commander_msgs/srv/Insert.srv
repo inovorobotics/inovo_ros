@@ -1,0 +1,10 @@
+int8 INSERT_AFTER=0
+int8 INSERT_BEFORE=1
+int8 AUTO_INSERT=2
+
+string token
+string blockly
+int8 insert_mode
+---
+bool success
+string error_message

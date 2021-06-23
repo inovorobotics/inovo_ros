@@ -1,0 +1,10 @@
+string token # A unique ID representing the sender
+
+string block_id # ID of the block that changed
+string element # Type of the element that changed
+string name # Name of the element that changed
+string new_value # The new value of the element
+
+---
+bool success # Indicate successful run of triggered service
+string message # Informational, e.g. for error messages

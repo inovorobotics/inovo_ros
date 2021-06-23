@@ -1,0 +1,5 @@
+string name
+---
+string value # Should be JSON encoded - types shall be deduced from json
+bool success
+string message
