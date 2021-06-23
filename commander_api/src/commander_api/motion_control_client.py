@@ -3,7 +3,7 @@ import rospy
 import actionlib  # SimpleActionClient
 from arm_msgs.msg import *
 from arm_msgs.srv import *
-from virtual_robot.msg import *  # MotionAction and friends
+from commander_msgs.msg import *  # MotionAction and friends
 from lease.srv import *
 from lease.msg import *
 from commander_api.custom_datatypes import TransformFrame

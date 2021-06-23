@@ -3,7 +3,7 @@ import rospy
 import math
 from commander_api.motion_control_client import MotionControlClient, Waypoint, Motion
 from commander_api.custom_datatypes import TransformFrame
-from virtual_robot.msg import MotionAction, MotionGoal, MotionSequencePoint
+from commander_msgs.msg import MotionAction, MotionGoal, MotionSequencePoint
 
 pi = math.pi
 
