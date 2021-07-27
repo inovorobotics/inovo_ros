@@ -25,8 +25,7 @@ mc.run(Motion(b))
 print("Moving to a then b in one motion")
 mc.run(Motion((a, b)))
 
-
-# A more complex path
+print("Running a complex path")
 m = Motion()
 
 ACCEL = 1.0
@@ -48,3 +47,5 @@ for x in range(-5, 5, 1):
     m.add(a)
 
 mc.run(m)
+
+print("Done!")
