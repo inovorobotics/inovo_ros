@@ -55,7 +55,7 @@ class Waypoint:
 
 class Motion:
     """
-    Container for a series of motions.
+    Container for a set of motions.
     """
 
     def __init__(self, point=None):
@@ -77,58 +77,14 @@ class Motion:
 
 
 class MotionControlClient:
-    """Class used to send motion commands to the robot
+    """
+    Client used to send high level motion commands to an Inovo robot.
     """
 
     def __init__(self, ns="default_move_group"):
         self.client = actionlib.SimpleActionClient(ns + "/move", MotionAction)
         if not self.client.wait_for_server(rospy.Duration(1.0)):
             raise Exception("Unable to connect to action server")
-
-    def movej_angle(self, joint_angles, joint_velocity=0.4, joint_acceleration=0.75):
-        """Move to a joint space target, locks till the target is reached
-
-        :param joint_angles: Joint angles in radians
-        :type joint_angles: list(float)
-        :param joint_velocity: Maximum joint velocity in rad/s, defaults to 0.4
-        :type joint_velocity: float, optional
-        :param joint_acceleration: Maximum joint acceleration in rad/s/s, defaults to 0.75
-        :type joint_acceleration: float, optional
-        :raises RuntimeError: Unable to execute the move
-        """
-        point = MotionSequencePoint()
-        point.max_joint_velocity = joint_velocity
-        point.max_joint_acceleration = joint_acceleration
-        point.use_joint_space_target = True
-        point.joint_names = ['j1', 'j2', 'j3', 'j4', 'j5', 'j6']
-        point.joint_angles = joint_angles
-        point.unwind_joint_target = True
-
-        # ping from thread lambda callback timer while flag to get out
-        try:
-            self.acquire_lease(self.unique_id, self.hardware_id)
-        except:
-            print('Coulnt acquire lease')
-
-        self.lease_flag = True
-
-        t1 = threading.Thread(target=self.__lease_thread)
-        t1.start()
-
-        # Add the waypoint to the sequence
-        goal = MotionGoal()
-        goal.motion_sequence.append(point)
-
-        self.client.send_goal(goal)
-        self.client.wait_for_result()
-        res = self.client.get_result()
-
-        # Release the lease
-        self.lease_flag = False
-        t1.join()
-
-        if not res.success:
-            raise RuntimeError("Unable to run sequence: " + res.message)
 
     def run(self, motion):
         goal = MotionGoal()
@@ -140,105 +96,6 @@ class MotionControlClient:
 
         if not result.success:
             raise Exception(result.message)
-
-    def movej(self, target, spd=0.25, acc=0.5):
-        """Joint move to a cartesian target, locks till the target is reached
-
-        :param target: Target position x, y, z in meters and rotation rx, ry, rz in radians
-        :type target: TransformFrame
-        :param spd: Tool speed in m/s, defaults to 0.25
-        :type spd: float, optional
-        :param acc: Tool acceleration in m/s/s, defaults to 0.5
-        :type acc: float, optional
-        :raises RuntimeError: Unable to execute the move
-        """
-        point = MotionSequencePoint()
-        point.pose.position.x = target.x
-        point.pose.position.y = target.y
-        point.pose.position.z = target.z
-
-        quat = target.get_quaternion()
-
-        point.pose.orientation.x = quat[0]
-        point.pose.orientation.y = quat[1]
-        point.pose.orientation.z = quat[2]
-        point.pose.orientation.w = quat[3]
-
-        point.max_velocity.linear = spd
-        point.max_acceleration.linear = acc
-        point.cartesian = False
-
-        # ping from thread lambda callback timer while flag to get out
-        self.acquire_lease(self.unique_id, self.hardware_id)
-        self.lease_flag = True
-        t1 = threading.Thread(target=self.__lease_thread)
-        t1.start()
-
-        # Add the waypoint to the sequence
-        goal = MotionGoal()
-        goal.motion_sequence.append(point)
-
-        self.client.send_goal(goal)
-        self.client.wait_for_result()
-        res = self.client.get_result()
-
-        # Release the lease
-        self.lease_flag = False
-        t1.join()
-
-        if not res.success:
-            raise RuntimeError("Unable to run sequence: " + res.message)
-
-    def movel(self, target, spd=0.25, acc=0.5):
-        """Linear move to a cartesian target, locks till the target is reached
-
-        :param target: Target position x, y, z in meters and rotation rx, ry, rz in radians
-        :type target: TransformFrame
-        :param spd: Tool speed in m/s, defaults to 0.25
-        :type spd: float, optional
-        :param acc: Tool acceleration in m/s/s, defaults to 0.5
-        :type acc: float, optional
-        :raises RuntimeError: Unable to execute the move
-        """
-
-        point = MotionSequencePoint()
-        point.pose.position.x = target.x
-        point.pose.position.y = target.y
-        point.pose.position.z = target.z
-
-        quat = target.get_quaternion()
-
-        point.pose.orientation.x = quat[0]
-        point.pose.orientation.y = quat[1]
-        point.pose.orientation.z = quat[2]
-        point.pose.orientation.w = quat[3]
-
-        point.max_velocity.linear = spd
-        point.max_acceleration.linear = acc
-        point.cartesian = True
-
-        print('starting lease')
-        # ping from thread lambda callback timer while flag to get out
-        self.acquire_lease(self.unique_id, self.hardware_id)
-        self.lease_flag = True
-        print('starting thread')
-        t1 = threading.Thread(target=self.__lease_thread)
-        t1.start()
-
-        # Add the waypoint to the sequence
-        goal = MotionGoal()
-        goal.motion_sequence.append(point)
-
-        self.client.send_goal(goal)
-        self.client.wait_for_result()
-        res = self.client.get_result()
-
-        # Release the lease
-        self.lease_flag = False
-        t1.join()
-
-        if not res.success:
-            raise RuntimeError("Unable to run sequence: " + res.message)
 
     def get_joint_angles(self):
         """Get the current joint positions
