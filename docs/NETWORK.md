@@ -1,61 +1,39 @@
-# Setting up the network
+# Setting up the Inovo Robot's network for remote ROS communications
 
-There are various ways to configure the robot to allow ROS communications to take place.
+In order to connect and control the Inovo robot using ROS, you must first configure the environment on your development machine.
 
-## Setting up the ROS master
+The first step ts to make sure you can connect to the Inovo robot using its hostname.
+Note: If your DHCP and DNS server are the same thing, and it is configured in just the right way, this will work automatically. Most of the time however you will need to add the robot's hostname to your `/etc/hosts` file like so:
 
-### Using the internal ROS master (Recommended)
-The Inovo robot control unit runs a ROS master by default on port 11311. Before running any ROS nodes on an external machine, set the ROS_MASTER_URI environment variable.
+Note: replace `psuXXX` below with the hostname of your robot, which can be found on the pendant's home page.
 ```
-export ROS_MASTER_URI=http://<hostname-of-inovo-control-unit>:11311
-rosrun ...
-```
-
-You can also configure this to happen on all new terminals:
-```
-echo "export ROS_MASTER_URI=http://<hostname-of-inovo-control-unit>:11311" >> ~/.bashrc
-source  ~/.bashrc
+192.168.2.3 psuXXX
 ```
 
-### Using an alternative ROS master
-SSH into the Inovo robot control unit and modify the RCU's service file `/etc/systemd/system/rcu.service`
-
+Test the configuration is correct by trying to ping robot using it's hostname.
 ```
-...
-[Service]
-# Important - roslaunch doesn't trap SIGTERM
-KillSignal=SIGINT 
-User=root
-
-# ADD THIS LINE
-Environment="ROS_MASTER_URI=http://<master-ip-address>:<master-port-number>"
-
-Environment="ROS_PYTHON_LOG_CONFIG_FILE=/etc/ros/python_logging.conf"
-ExecStart=/bin/bash -c "source /opt/rcu/setup.bash && mon launch --disable-ui --flush-stdout --name=rosmon --disable-diagnostics --log=/dev/null rcu ${LAUNCHFILE}"
-...
+ping psuXXX
 ```
 
-Then restart the RCU service:
+You should see something like this:
 ```
-systemctl restart rcu
+PING psuXXX (192.168.2.3) 56(84) bytes of data.
+64 bytes from psuXXX (192.168.2.3): icmp_seq=1 ttl=64 time=1.27 ms
+64 bytes from psuXXX (192.168.2.3): icmp_seq=2 ttl=64 time=1.22 ms
+64 bytes from psuXXX (192.168.2.3): icmp_seq=3 ttl=64 time=1.23 ms
 ```
+Press Ctrl-C to cancel the ping command.
 
-## Setting up the hostnames
-ROS nodes communicate with each other using hostname lookups. By default, nodes will report to the ROS master using the hostname which is provided by using `hostname` command. For the inovo control unit this will be something like `psuXXX` where `XXX` is the serial number. For ROS communications to work, all hosts on the ROS network must be able to resolve each other's IP addresses via their hostname.
-
-It is possible to configure some router's DHCP/DNS servers to resolve hosts via their hostname, but configuration varies between router manufacturers and is outside the scope of this tutorial.
-
-If all else fails then you will need add any ROS hosts hostnames into the /etc/hosts file in the Inovo control unit.
-
+Now you should configure some environment variables to communicate with your development machine:
 ```
-# SSH into the RCU
-ssh root@psuXXX
-
-# Add the hostname and IP, repeat for all hosts
-echo "<host-ip> <hostname>" >> /etc/hosts
-
-# Test this hostname is resolveable
-ping <hostname>
+export ROS_MASTER_URI=http://psuXXX:11311
+export ROS_IP=<dev-machine-ip>
 ```
+Replace `<dev-machine-ip>` with your development machine's external IP address. This IP should be accessible from the Inovo robot to allow connections back to your machine.
 
-Repeat this process for all your nodes that should participate in the ROS network.
+You might find it handy to add these lines to your `.bashrc` file.
+```
+echo "export ROS_MASTER_URI=http://psuXXX:11311" >> ~/.bashrc
+echo "export ROS_IP=<dev-machine-ip>" >> ~/.bashrc
+source ~/.bashrc
+```
