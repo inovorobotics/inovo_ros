@@ -9,6 +9,8 @@ robot = RobotClient('/robot')
 
 robot.disable()
 
-time.sleep(1.0)
+time.sleep(0.5)
 
 robot.enable()
+
+robot.switch_controller("trajectory")
