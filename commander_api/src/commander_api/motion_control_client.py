@@ -4,8 +4,6 @@ import actionlib  # SimpleActionClient
 from arm_msgs.msg import *
 from arm_msgs.srv import *
 from commander_msgs.msg import *  # MotionAction and friends
-from lease.srv import *
-from lease.msg import *
 from commander_api.custom_datatypes import TransformFrame
 from geometry_msgs.msg import *
 import threading
