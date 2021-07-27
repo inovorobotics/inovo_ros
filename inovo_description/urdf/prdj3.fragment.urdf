@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<fragment>
+	<link name="{{prefix}}_elbow">
+		<visual>
+			<origin xyz="0 0 {{0.09025 + calibration.0}}" rpy="3.14 3.14 3.14"/>
+			<geometry>
+				<mesh filename="package://inovo_description/meshes/prd/J3.dae" />
+			</geometry>
+		</visual>
+		<collision name="{{prefix}}_elbow">
+			<origin xyz="0 0 {{0.09 + calibration.0}}" rpy="0 1.57 0" />
+			<geometry>
+				<cylinder radius="0.06" length="0.14"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="-0.01456 0.0 0.0112" rpy="0 0 0" />
+			<mass value="2.58" />
+			<inertia ixx="0.00555" ixy="0.0" ixz="-0.00039" iyy="0.0066" iyz="0.0" izz="0.00459" />
+		</inertial>
+	</link>
+	<joint name="{{prefix}}" type="continuous">
+		<axis xyz="0 0 1"/>
+		<parent link="{{prefix}}_elbow" />
+		<child link="{{child_link}}" />
+		<origin xyz="0 0 {{0.09025 + calibration.0}}" rpy="0 -1.57079632679 0"/>
+		<dynamics friction="{{friction}}" damping="{{damping}}" />
+		<limit effort="10.0" velocity="2.5" />
+	</joint>
+</fragment>

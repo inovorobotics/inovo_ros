@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>inovo_description</name>
+  <version>0.1.0</version>
+  <description>Contains URDFs, meshes and textures for the Inovo robot arms</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <maintainer email="support@inovorobotics.com">Inovo Robotics</maintainer>
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<fragment>
+	<link name="{{prefix}}_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://inovo_description/meshes/prd/J2.dae" />
+			</geometry>
+		</visual>
+		<collision name="{{prefix}}_shoulder">
+			<origin xyz="-0.005 0 0" rpy="0 1.57079632679 0" />
+			<geometry>
+				<cylinder radius="0.08" length="0.17"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0.01745 0.0 -0.03032" rpy="0 0 0" />
+			<mass value="5.24" />
+			<inertia ixx="0.01699" ixy="0.0" ixz="-0.0005" iyy="0.01758" iyz="0.0" izz="0.01251" />
+		</inertial>
+	</link>
+	<joint name="{{prefix}}" type="continuous">
+		<axis xyz="0 0 1" />
+		<parent link="{{prefix}}_shoulder" />
+		<child link="{{prefix}}_shoulder_output" />
+		<origin xyz="0.1335 0 0" rpy="0 4.7123889804 3.14159265359" />
+		<dynamics friction="{{friction}}" damping="{{damping}}" />
+		<limit effort="4.0" velocity="1.8" />
+		<!-- "effort abused for acceleration while we don't have a torque limited motion planner"-->
+	</joint>
+	<link name="{{prefix}}_shoulder_output">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 4.71238 3.1415" />
+			<geometry>
+				<mesh filename="package://inovo_description/meshes/prd/J2_1.dae" />
+			</geometry>
+		</visual>
+		<collision name="{{prefix}}_shoulder_output">
+			<origin xyz="0 0 0.002" rpy="0 0 0" />
+			<geometry>
+				<cylinder radius="0.08" length="0.11"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0.00803 0.0 -0.0271" rpy="0 0 0" />
+			<mass value="2.243" />
+			<inertia ixx="0.00579" iyy="0.00653" izz="0.00604" ixy="0.0" ixz="0.000577" iyz="0.0" />
+		</inertial>
+	</link>
+	<joint name="{{prefix}}_shoulder_output_joint" type="fixed">
+		<parent link="{{prefix}}_shoulder_output" />
+		<child link="{{child_link}}" />
+		<origin xyz="{{0.07975 + calibration.0}} 0.0 0.0" rpy="3.14159265359 -1.57079632679 0" />
+	</joint>
+</fragment>
