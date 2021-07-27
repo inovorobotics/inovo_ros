@@ -5,8 +5,6 @@ from commander_api.motion_control_client import MotionControlClient, Waypoint, M
 from commander_api.custom_datatypes import TransformFrame
 from commander_msgs.msg import MotionAction, MotionGoal, MotionSequencePoint
 
-pi = math.pi
-
 # Initialize the ROS node
 rospy.init_node("commander_api_example")
 
