@@ -30,28 +30,29 @@ m = Motion()
 
 ACCEL = 1.0
 VEL = 1.0
+BLENDL = 0.2
 
 for x in range(50):
-    a = Waypoint(0.4, x/50 - 0.5, 0.4, math.pi, 0, 0) \
+    m.add(Waypoint(0.4, x/50 - 0.5, 0.4, math.pi, 0, 0) \
         .constrain_joint_acceleration(ACCEL) \
         .constrain_joint_velocity(VEL) \
-        .set_blend(BLENDL, 0.5).set_linear()
-    m.add(a)
-    a = Waypoint(0.4, x/50 - 0.5, 0.41, math.pi, 0, 0) \
+        .set_blend(BLENDL, 0.5) \
+        .set_linear())
+    m.add(Waypoint(0.4, x/50 - 0.5, 0.41, math.pi, 0, 0) \
         .constrain_joint_acceleration(ACCEL) \
         .constrain_joint_velocity(VEL) \
-        .set_blend(BLENDL, 0.5).set_linear()
-    m.add(a)
-    a = Waypoint(0.4, 0.01 + x/50 - 0.5, 0.41, math.pi, 0, 0) \
+        .set_blend(BLENDL, 0.5) \
+        .set_linear())
+    m.add(Waypoint(0.4, 0.01 + x/50 - 0.5, 0.41, math.pi, 0, 0) \
         .constrain_joint_acceleration(ACCEL) \
         .constrain_joint_velocity(VEL) \
-        .set_blend(BLENDL, 0.5).set_linear()
-    m.add(a)
-    a = Waypoint(0.4, 0.01 + x/50 - 0.5, 0.41, math.pi, 0, 0) \
+        .set_blend(BLENDL, 0.5) \
+        .set_linear())
+    m.add(Waypoint(0.4, 0.01 + x/50 - 0.5, 0.41, math.pi, 0, 0) \
         .constrain_joint_acceleration(ACCEL) \
         .constrain_joint_velocity(VEL) \
-        .set_blend(BLENDL, 0.5).set_linear()
-    m.add(a)
+        .set_blend(BLENDL, 0.5) \
+        .set_linear())
 mc.run(m)
 
 print("Done!")
