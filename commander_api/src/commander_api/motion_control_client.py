@@ -2,12 +2,9 @@
 import rospy
 import actionlib  # SimpleActionClient
 from commander_msgs.msg import *  # MotionAction and friends
-from commander_api.custom_datatypes import TransformFrame
-from geometry_msgs.msg import *
-import threading
-
+from geometry_msgs.msg import PoseStamped
+from sensor_msgs.msg import JointState
 import PyKDL
-
 
 class Waypoint:
     """
@@ -82,6 +79,7 @@ class MotionControlClient:
     """
 
     def __init__(self, ns="default_move_group"):
+        self.ns = ns
         self.client = actionlib.SimpleActionClient(ns + "/move", MotionAction)
         if not self.client.wait_for_server(rospy.Duration(1.0)):
             raise Exception("Unable to connect to action server")
@@ -103,22 +101,14 @@ class MotionControlClient:
         :return: Joint positions (rad)
         :rtype: list(float)
         """
-        res = self.get_joint_states_srv()
-        return res.state.position
+        msg = rospy.wait_for_message("/joint_states", JointState, rospy.Duration(1.0))
+        return msg
 
     def get_tcp_pose(self):
         """Get the current position of the TCP in base frame 
 
         :return: TCP position
-        :rtype: TransformFrame
+        :rtype: geometry_msgs.msg.Pose
         """
-        tcp = rospy.wait_for_message(
-            "/default_move_group/tcp_pose", TransformStamped)
-        frame = TransformFrame()
-
-        frame.x = tcp.transform.translation.x
-        frame.y = tcp.transform.translation.y
-        frame.z = tcp.transform.translation.z
-        frame.from_quaternion(tcp.transform.rotation.x, tcp.transform.rotation.y,
-                              tcp.transform.rotation.z, tcp.transform.rotation.w)
-        return frame
+        msg = rospy.wait_for_message(self.ns + "/tcp_pose", PoseStamped, rospy.Duration(1.0))
+        return msg.pose
