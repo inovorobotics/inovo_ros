@@ -10,7 +10,7 @@ rospy.init_node('check_network')
 
 client = actionlib.SimpleActionClient('/default_move_group/move', MotionAction)
 
-if client.wait_for_server():
+if client.wait_for_server(rospy.Duration(1.0)):
     print("Connected to the 'move' action server. Network is configured correctly!")
 else:
-    print("Timed out waiting for server to connect. Your network is not configured properly.")
+    print("Timed out waiting for server to connect. Your network is NOT configured properly.")
