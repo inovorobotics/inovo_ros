@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>inovo_msgs</name>
+  <name>inovo_driver_msgs</name>
   <version>0.1.0</version>
   <description>Messages and services used to interface with the inovo driver node</description>
   <maintainer email="support@inovorobotics.com">Inovo Robotics</maintainer>

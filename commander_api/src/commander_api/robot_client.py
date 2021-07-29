@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import rospy
 from std_srvs.srv import Trigger
-from inovo_msgs.srv import SwitchControllerGroup
+from inovo_driver_msgs.srv import SwitchControllerGroup
 
 class RobotClient:
     """Robot client class used for basic control of the robot
