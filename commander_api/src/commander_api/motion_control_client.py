@@ -4,7 +4,7 @@ import actionlib  # SimpleActionClient
 from commander_msgs.msg import *  # MotionAction and friends
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
-import PyKDL
+import tf
 
 class Waypoint:
     """
@@ -17,8 +17,7 @@ class Waypoint:
         self._point.pose.position.y = y
         self._point.pose.position.z = z
 
-        rot = PyKDL.Rotation.EulerZYX(rz, ry, rx)
-        quat = rot.GetQuaternion()
+        quat = tf.transformations.quaternion_from_euler(rx, ry, rz)
         self._point.pose.orientation.x = quat[0]
         self._point.pose.orientation.y = quat[1]
         self._point.pose.orientation.z = quat[2]

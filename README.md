@@ -53,6 +53,6 @@ Run an following exmaple `move_example.py` moves the robot arm to various pre-co
 rosrun commander_api move_example.py
 ```
 
-Take a look at move_example.py using your favourite text editor to find out how to move the robot.
+Take a look at `move_example.py` using your favourite text editor to find out how to move the robot.
 
 This repository only contains a minimal set of examples, more are to follow soon!
