@@ -1,34 +1,18 @@
 #!/usr/bin/env python3
+
 import rospy
 import math
 from commander_api.motion_control_client import MotionControlClient, Waypoint, Motion
-from commander_api.custom_datatypes import TransformFrame
-from commander_msgs.msg import MotionAction, MotionGoal, MotionSequencePoint
 
-# Initialize the ROS node
-rospy.init_node("commander_api_example")
+rospy.init_node("motion_advanced")
 
-# Create a new motion control client
 mc = MotionControlClient("default_move_group")
 
-a = Waypoint(0.4, 0.4, 0.4, math.pi, 0, 0)
-b = Waypoint(0.4, -0.4, 0.4, math.pi, 0, 0)
+ACCEL = 0.4
+VEL = 0.2
+BLENDL = 0.1
 
-print("Moving to a")
-mc.run(Motion(a))
-
-print("Moving to b")
-mc.run(Motion(b))
-
-print("Moving to a then b in one motion")
-mc.run(Motion((a, b)))
-
-print("Running a complex path")
 m = Motion()
-
-ACCEL = 1.0
-VEL = 1.0
-BLENDL = 0.2
 
 for x in range(50):
     m.add(Waypoint(0.4, x/50 - 0.5, 0.4, math.pi, 0, 0) \
