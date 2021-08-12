@@ -56,6 +56,7 @@ add_message_files(
   Variable.msg
   RuntimeState.msg
   BlockLog.msg
+  BlockError.msg
   Update.msg
   Prompt.msg
   Blockly.msg
