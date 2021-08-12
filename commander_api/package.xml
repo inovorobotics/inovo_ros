@@ -8,6 +8,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>commander_msgs</depend>
+  <depend>tf2</depend>
 
   <export>
   </export>
