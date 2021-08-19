@@ -1,6 +1,6 @@
-bool result # Whether the user pressed OK or cancel
+bool result # True to continue, false to abort
 string prompt_id # The unique ID prepresenting the prompt
-string value # The value returned by the prompt
+string value # The value being passed back to the prompt (ignored if this prompt takes no input)
 ---
 bool success # Whether the service call failed or not
-string message # A desscriptive error message is success is false
+string message # A desscriptive error message if success == false
