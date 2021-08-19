@@ -7,7 +7,6 @@ uint8 PAUSED_ON_ERROR = 3
 
 uint8 state
 
-string current_block
 string[] active_blocks
 
 float32 current_block_progress
