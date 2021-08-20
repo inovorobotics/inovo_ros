@@ -6,12 +6,12 @@ Sequences are described to the sequencer using Blockly trees. These are transfer
 
 ## Published Topics
 - `/sequence/errors ` ([commander_msgs/BlockError](../commander_msgs/msg/BlockError.msg))
-  - If the block emits an error, a message will be published to this topic showing the contents of the error, and the ID of the block that generated it.
-  - This topic is latched, so late subscribers will get an active error.
-  - When the error is cleared, the block id will be an empty string. If you receive this then this indicates that the error is gone and it should be removed from any UI.
+  - If a block emits an error, a message will be published to this topic showing the contents of the error, and the ID of the block that generated it.
+  - This topic is latched, so late subscribers will get active errors.
+  - When the error is cleared, the a new message is published with an empty block id string. If you receive a message with an empty block ID, this indicates that the error has now disappeared, and should be removed from any display.
 
 - `/sequence/blockly ` ([commander_msgs/Blockly](../commander_msgs/msg/Blockly.msg))
-  - Blockly XML pushed to this topic when the sequence changes.
+  - The Blockly tree is pushed in the Blockly XML format to this topic when the sequence changes.
   - This message contains a Blockly XML string and a token which is populated with the token that was passed in with the `sequence/upload` service, if the Blockly was updated this way.
   - If the Blockly was updated due to some other method such as loading a saved sequence, loading a new sequence, or the first time the sequence is loaded from an autosave, the token will be an empty string, indicating that all UIs will need to update their state of the tree.
   - This topic is latched so late subscribers will get the latest state of the Blockly tree.
