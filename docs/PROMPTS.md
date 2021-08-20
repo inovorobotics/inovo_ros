@@ -3,12 +3,12 @@
 The commander node features a prompt subsystem which is used by the sequencer to emit prompts when a prompt block is executed. Prompts are used for alerting the user of some information and giving them the option to continue or abort the sequence. Prompts can also allow the user to access 
 This uses the following topics and services:
 
-Published topics:
+## Published Topics
  - `sequence/prompt` ([commander_msgs/Prompt](../commander_msgs/msg/Prompt.msg))
    - Messages are published to this topic when a prompt is to be show or hidden.
    - Latched so that newly connecting clients will get currently active prompts.
 
-Services:
+## Advertised Services
  - `sequence/prompt` ([commander_msgs/PromptResponse](../commander_msgs/srv/PromptResponse.srv))
    - Call this service to acknowledge a prompt.
 
