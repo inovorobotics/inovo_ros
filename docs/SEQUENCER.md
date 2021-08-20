@@ -10,6 +10,9 @@ Sequences are described to the sequencer using Blockly trees. These are transfer
   - This topic is latched, so late subscribers will get active errors.
   - When the error is cleared, the a new message is published with an empty block id string. If you receive a message with an empty block ID, this indicates that the error has now disappeared, and should be removed from any display.
 
+- `/sequence/log ` ([commander_msgs/BlockLog](../commander_msgs/msg/BlockLog.msg))
+  - If a block prints something, a message will be published to this topic showing the contents of the message, and the ID of the block that printed it.
+
 - `/sequence/blockly ` ([commander_msgs/Blockly](../commander_msgs/msg/Blockly.msg))
   - The Blockly tree is pushed in the Blockly XML format to this topic when the sequence changes.
   - This message contains a Blockly XML string and a token which is populated with the token that was passed in with the `sequence/upload` service, if the Blockly was updated this way.
