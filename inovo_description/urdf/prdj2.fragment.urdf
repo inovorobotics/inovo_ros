@@ -24,7 +24,7 @@
 		<parent link="{{prefix}}_shoulder" />
 		<child link="{{prefix}}_shoulder_output" />
 		<origin xyz="0.1335 0 0" rpy="0 4.7123889804 3.14159265359" />
-		<dynamics friction="{{friction}}" damping="{{damping}}" />
+		<dynamics friction="19.2" damping="16.7" />
 		<limit effort="4.0" velocity="1.8" />
 		<!-- "effort abused for acceleration while we don't have a torque limited motion planner"-->
 	</joint>

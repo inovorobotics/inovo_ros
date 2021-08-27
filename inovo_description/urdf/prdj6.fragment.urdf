@@ -24,7 +24,7 @@
 		<parent link="{{prefix}}_wrist_b" />
 		<child link="{{prefix}}_prd1192" />
 		<origin xyz="0 0 0.0" rpy="0 -1.5707963267908 3.141592653590" />
-		<dynamics friction="{{friction}}" damping="{{damping}}" />
+		<dynamics friction="4.6" damping="2.9" />
 		<limit effort="25.0" velocity="3.3" />
 	</joint>
 	<link name="{{prefix}}_prd1192">
