@@ -25,7 +25,7 @@
 		<parent link="{{prefix}}_base" />
 		<child link="{{child_link}}" />
 		<origin xyz="0 0 0.26022" rpy="0 0 0" />
-		<dynamics friction="22.0" damping="18.3" />
+		<dynamics friction="{{friction}}" damping="{{damping}}" />
 		<limit effort="3.0" velocity="1.8" />
 		<!-- "effort abused for acceleration while we don't have a torque limited motion planner"-->
 	</joint>

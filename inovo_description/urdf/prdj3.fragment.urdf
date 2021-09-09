@@ -24,7 +24,7 @@
 		<parent link="{{prefix}}_elbow" />
 		<child link="{{child_link}}" />
 		<origin xyz="0 0 {{0.09025 + calibration.0}}" rpy="0 -1.57079632679 0"/>
-		<dynamics friction="9.6" damping="7.4" />
+		<dynamics friction="{{friction}}" damping="{{damping}}" />
 		<limit effort="10.0" velocity="2.5" />
 	</joint>
 </fragment>

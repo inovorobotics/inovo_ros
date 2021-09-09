@@ -24,7 +24,7 @@
 		<parent link="{{prefix}}_elbow_output" />
 		<child link="{{prefix}}_forearm" />
 		<origin xyz="0 0 0.1335" rpy="0 -1.57079632679 3.141592653590"/>
-		<dynamics friction="8.3" damping="6.5" />
+		<dynamics friction="{{friction}}" damping="{{damping}}" />
 		<limit effort="10.0" velocity="2.6" />
 	</joint>
 	<link name="{{prefix}}_forearm">
