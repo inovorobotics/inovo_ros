@@ -186,7 +186,8 @@ install(FILES
   launch/emulate_short.launch
   launch/emulate_medium.launch
   launch/emulate_long.launch
-  rviz/config.launch
+  launch/emulate.launch
+  rviz/config.rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
