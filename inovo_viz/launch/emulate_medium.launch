@@ -1,0 +1,4 @@
+<launch>
+    <param name="robot_description" textfile="$(find inovo_description)/urdf/examples/prd_medium.urdf" />
+    <include file="$(find inovo_viz)/launch/emulate.launch" />
+</launch>
