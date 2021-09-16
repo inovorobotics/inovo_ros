@@ -56,3 +56,16 @@ rosrun commander_api move_example.py
 Take a look at `move_example.py` using your favourite text editor to find out how to move the robot.
 
 This repository only contains a minimal set of examples, more are to follow soon!
+
+## Visualization
+If you wish to visualize the robot, you can do so with the `inovo_viz` package which includes some scripts to show the various different robot sizes.
+
+After building and sourcing your workspace, run one of the following launch files to visualize either the short, medium and long robot "preset" configurations. This should open a `joint_state_publisher_gui` instance which allows you to control the joint angles, and an `rviz` instance to show the robot.
+
+```
+roslaunch inovo_viz emulate_short.launch
+roslaunch inovo_viz emulate_med.launch
+roslaunch inovo_viz emulate_long.launch
+```
+
+You can find URDFs for the "preset" configurations in the `inovo_description/urdf/examples` directory.
