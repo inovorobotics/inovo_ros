@@ -68,4 +68,4 @@ roslaunch inovo_viz emulate_med.launch
 roslaunch inovo_viz emulate_long.launch
 ```
 
-You can find URDFs for the "preset" configurations in the `inovo_description/urdf/examples` directory.
+You can find URDFs for the "preset" configurations in the [inovo_description/urdf/examples](inovo_description/urdf/examples) directory.
