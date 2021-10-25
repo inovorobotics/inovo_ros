@@ -25,6 +25,6 @@
 		<child link="{{child_link}}" />
 		<origin xyz="0 0 {{0.09025 + calibration.0}}" rpy="0 -1.57079632679 0"/>
 		<dynamics friction="{{friction}}" damping="{{damping}}" />
-		<limit effort="10.0" velocity="2.5" />
+		<limit effort="7.0" velocity="2.5" />
 	</joint>
 </fragment>
