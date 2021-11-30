@@ -1,7 +1,0 @@
-string token # A unique ID representing the sender
-
-string block_id # ID of the block that was deleted
-
----
-bool success # Indicate successful run of triggered service
-string message # Informational, e.g. for error messages
