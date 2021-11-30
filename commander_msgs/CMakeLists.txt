@@ -78,11 +78,8 @@ add_service_files(
   DeleteVariable.srv
   ListProjects.srv
   RunSequence.srv
-  BlocklyCreate.srv
-  BlocklyChange.srv
-  BlocklyMove.srv
-  BlocklyDelete.srv
   GetVariable.srv
+  NewProject.srv
 )
 
 ## Generate actions in the 'action' folder

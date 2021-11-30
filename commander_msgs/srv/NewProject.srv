@@ -1,7 +1,4 @@
-# The name of the project to perform the operation on
-string name
-
-# Perfrom the operation even if it would result in data loss
+# Make a new project even if it would result in data loss
 bool force
 
 ---
