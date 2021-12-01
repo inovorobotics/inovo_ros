@@ -6,8 +6,17 @@ bool force
 
 ---
 
-# True if a new project was created, otherwise false
+# True if the service completed successfully, false if there was an error
 bool success
 
-# An error message describing what went wrong
+# Predefined reason codes
+string ERR_PROJECT_EXISTS=project_exists
+string ERR_NO_SUCH_PROJECT=no_such_project
+string ERR_UNSAVED_CHANGES=unsaved_changes
+string ERR_UNKOWN=unknown
+
+# A short string defining the type of error that occurred
+string reason
+
+# A human-readable English error message describing what went wrong
 string message

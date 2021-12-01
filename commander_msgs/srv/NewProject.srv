@@ -3,8 +3,15 @@ bool force
 
 ---
 
-# True if a new project was created, otherwise false
+# True if the call was successful, otherwise false
 bool success
+
+# Predefined reason codes
+string ERR_UNSAVED_CHANGES=unsaved_changes
+string ERR_UNKOWN=unknown
+
+# A short string defining the type of error that occurred
+string reason
 
 # An error message describing what went wrong
 string message
