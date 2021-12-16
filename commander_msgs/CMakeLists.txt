@@ -61,6 +61,9 @@ add_message_files(
   Prompt.msg
   Blockly.msg
   ProjectMeta.msg
+  Speed.msg
+  SpeedStamped.msg
+  MoveGroupInfo.msg
 )
 
 ## Generate services in the 'srv' folder
