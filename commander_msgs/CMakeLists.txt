@@ -64,6 +64,7 @@ add_message_files(
   Speed.msg
   SpeedStamped.msg
   MoveGroupInfo.msg
+  CartesianJogDemand.msg
 )
 
 ## Generate services in the 'srv' folder
