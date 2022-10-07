@@ -84,6 +84,7 @@ add_service_files(
   RunSequence.srv
   GetVariable.srv
   NewProject.srv
+  UpdateSavedConfiguration.srv
 )
 
 ## Generate actions in the 'action' folder
