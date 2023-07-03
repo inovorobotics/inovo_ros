@@ -17,6 +17,7 @@ add_message_files(
   FILES
   Status.msg
   SafetyCircuitState.msg
+  Inputs.msg
 )
 
 ## Generate services in the 'srv' folder

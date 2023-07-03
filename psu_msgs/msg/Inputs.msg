@@ -1,0 +1,2 @@
+bool config_in_1
+bool config_in_2
